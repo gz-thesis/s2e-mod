@@ -1,0 +1,46 @@
+Revision: d70e950472133b740d8f92872319f420c904701b
+Config date: Mon Feb 19 01:49:27 EST 2018
+
+[Z3] Initializing
+Current data layout: e-m:e-i64:64-f80:128-n8:16:32:64-S128
+Current target triple: 
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Creating plugin CorePlugin
+Creating plugin ConcolicExploreSearcher
+Creating plugin BaseInstructions
+Creating plugin HostFiles
+Initializing HostFiles
+WARNING: Cannot get configuration value 'pluginsConfig['HostFiles'].logLevel':
+    value of type nil can not be converted to string
+
+Initializing BaseInstructions
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].logLevel':
+    [string "return pluginsConfig['BaseInstructions'].logL..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].restrict':
+    [string "return pluginsConfig['BaseInstructions'].rest..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+Initializing ConcolicExploreSearcher
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher'].logLevel':
+    value of type nil can not be converted to string
+
+[ConcolicExploreSearcher][init]: path to save test cases is: [/tmp]
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['PathBBLog']':
+    value of type nil can not be converted to string
+
+[ConcolicExploreSearcher][init]: path to save basic block log is: []
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['IdxInput']':
+    value of type nil can not be converted to integer
+
+[ConcolicExploreSearcher][init]: The database index of the input file is : [0]
+[ConcolicExploreSearcher][init]: The total number of Tbs for this input is (approximately): [1000000]
+/11000_0_1519023364
+Initializing CorePlugin
+WARNING: Cannot get configuration value 'pluginsConfig['CorePlugin'].logLevel':
+    [string "return pluginsConfig['CorePlugin'].logLevel"]:1: attempt to index a nil value (field 'CorePlugin')
+
+0 [State 0] Created initial state
+Initializing periodic timer
+Terminating node 0 (instance slot 0)

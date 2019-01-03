@@ -1,0 +1,141 @@
+/*
+ * S2E Selective Symbolic Execution Framework
+ *
+ * Copyright (c) 2010, Dependable Systems Laboratory, EPFL
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Dependable Systems Laboratory, EPFL nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE DEPENDABLE SYSTEMS LABORATORY, EPFL BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Currently maintained by:
+ *    Vitaly Chipounov <vitaly.chipounov@epfl.ch>
+ *    Volodymyr Kuznetsov <vova.kuznetsov@epfl.ch>
+ *
+ * All contributors are listed in the S2E-AUTHORS file.
+ */
+
+#ifndef S2E_PLUGINS_HEAPPATHSEARCHER_H
+#define S2E_PLUGINS_HEAPPATHSEARCHER_H
+
+#include <s2e/Plugin.h>
+#include <s2e/CorePlugin.h>
+#include <s2e/Plugins/OSMonitors/Support/ModuleExecutionDetector.h>
+#include <s2e/S2EExecutionState.h>
+
+#include <klee/Searcher.h>
+
+#include <klee/Searcher.h>
+#include <klee/Executor.h>
+
+#include <vector>
+
+namespace s2e {
+namespace plugins {
+
+
+class ConcolicExploreSearcher : public Plugin, public klee::Searcher
+{
+    S2E_PLUGIN
+public:
+
+    ConcolicExploreSearcher(S2E* s2e): Plugin(s2e) {}
+
+
+    void initialize();
+
+    //Selects the last specified state.
+    //If no states specified, schedules the one with the lowest ID.
+    virtual klee::ExecutionState& selectState();
+
+    virtual void update(klee::ExecutionState *current,
+			const klee::StateSet &addedStates,
+                        const klee::StateSet &removedStates);
+
+
+    virtual bool empty() {return states.empty();}
+
+private:
+
+
+    uint64_t IdxInput;
+    uint64_t IdxInterested;
+    uint64_t IdxBasicBlock;
+
+    ModuleExecutionDetector *m_detector;
+
+    std::vector<klee::ExecutionState*> states;
+    std::vector<std::array<uint64_t, 2> > m_whiteListAddr;
+    std::vector<std::array<uint64_t, 5> > m_targetBasicBlocks;
+    llvm::raw_fd_ostream *m_BBLogFile;
+
+    klee::ExecutionState *currentState;
+
+    bool m_searcherInited;
+    std::string m_pathTestCases;
+    std::string m_pathBBLog;
+    uint64_t  m_idxInput;
+    uint64_t  m_totalTbs;
+    /* std::set<uint64_t> m_visited; */
+    std::set<uint64_t> m_visitedTargets;
+    std::map<uint64_t, uint64_t> m_targetBBList;
+    bool m_generate_constranit;
+
+    void initializeSearcher();
+    void initializeConfiguration();
+    std::string writeInputFile(
+        S2EExecutionState* genState,
+        uint64_t, uint64_t, uint64_t
+);
+    bool m_add;
+    bool checkPC(S2EExecutionState *state, klee::ref<klee::Expr>);
+    /* bool checkPC(S2EExecutionState *state); */
+    void onFork(S2EExecutionState *state,
+                const std::vector<S2EExecutionState*>& newStates,
+                const std::vector<klee::ref<klee::Expr> >& newConditions
+                );
+
+    void onForkCheck(S2EExecutionState *state, klee::ref<klee::Expr>, bool *forkOk);
+    /* void onForkCheck(S2EExecutionState *state, bool *forkOk); */
+    std::vector<klee::ref<klee::Expr>> m_solved;
+    void onShutdown();
+    void writeToScore(uint64_t);
+    void updateVisited(uint64_t, uint64_t);
+
+    /* uint64_t hit = 0, miss = 0; */
+
+    //uint64_t computeTargetPc(S2EExecutionState *state);
+    inline const char * const boolString(bool b)
+    {
+          return b ? "true" : "false";
+    }
+
+    /* void onCustomInstruction(S2EExecutionState* state, uint64_t opcode); */
+    typedef std::pair<std::string, std::vector<unsigned char> > VarValuePair;
+    typedef std::vector<VarValuePair> ConcreteInputs;
+};
+
+
+
+} // namespace plugins
+} // namespace s2e
+
+#endif

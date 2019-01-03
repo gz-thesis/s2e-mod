@@ -1,0 +1,552 @@
+/*
+ * S2E Selective Symbolic Execution Framework
+ *
+ * Copyright (c) 2010, Dependable Systems Laboratory, EPFL
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *     * Redistributions of source code must retain the above copyright
+ *       notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above copyright
+ *       notice, this list of conditions and the following disclaimer in the
+ *       documentation and/or other materials provided with the distribution.
+ *     * Neither the name of the Dependable Systems Laboratory, EPFL nor the
+ *       names of its contributors may be used to endorse or promote products
+ *       derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE DEPENDABLE SYSTEMS LABORATORY, EPFL BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Currently maintained by:
+ *    Vitaly Chipounov <vitaly.chipounov@epfl.ch>
+ *    Volodymyr Kuznetsov <vova.kuznetsov@epfl.ch>
+ *
+ * All contributors are listed in the S2E-AUTHORS file.
+ */
+
+#include <unistd.h>
+#include <sys/syscall.h>
+#include <sys/types.h>
+
+#include <s2e/cpu.h>
+#include <s2e/opcodes.h>
+
+#include <s2e/ConfigFile.h>
+#include <s2e/S2E.h>
+#include <s2e/S2EExecutor.h>
+#include <s2e/Utils.h>
+
+namespace md5{
+#include <openssl/md5.h>
+}
+/* #include <openssl/evp.h> */
+
+#include <llvm/Support/FileSystem.h>
+#include <llvm/Support/raw_ostream.h>
+
+#include <iostream>
+#include <cctype>
+#include <time.h>
+
+#include "ConcolicExploreSearcher.h"
+
+namespace s2e {
+namespace plugins {
+
+using namespace llvm;
+
+S2E_DEFINE_PLUGIN(ConcolicExploreSearcher, "Explore potaintial paths according to defined forking addresses", "ConcolicExploreSearcher", "ModuleExecutionDetector");
+
+void ConcolicExploreSearcher::initialize()
+{
+    m_detector = s2e()->getPlugin<ModuleExecutionDetector>();
+    m_searcherInited = false;
+    currentState = NULL;
+    m_generate_constranit=false;
+    m_add = false;
+
+    IdxInput = 0;
+    IdxInterested = 0;
+    IdxBasicBlock = 0;
+
+    initializeSearcher();
+}
+
+void ConcolicExploreSearcher::initializeSearcher()
+{
+    if (m_searcherInited) {
+        return;
+    }
+    initializeConfiguration();
+
+    s2e()->getExecutor()->setSearcher(this);
+    m_searcherInited = true;
+
+    // post fork operations
+    s2e()->getCorePlugin()->onStateFork.connect(
+            sigc::mem_fun(*this, &ConcolicExploreSearcher::onFork));
+
+    // pre fork operations
+    /* s2e()->getCorePlugin()->onStateForkDecide.connect( */
+    /*         sigc::mem_fun(*this, &ConcolicExploreSearcher::onForkCheck)); */
+    s2e()->getCorePlugin()->onStateForkDecideCondition.connect(
+            sigc::mem_fun(*this, &ConcolicExploreSearcher::onForkCheck));
+
+    // write update visited basic blocks for this particular run
+    s2e()->getCorePlugin()->onEngineShutdown.connect(
+            sigc::mem_fun(*this, &ConcolicExploreSearcher::onShutdown));
+
+}
+
+void ConcolicExploreSearcher::initializeConfiguration()
+{
+    bool ok = true;
+    ConfigFile *cfg = s2e()->getConfig();
+
+    m_pathTestCases = cfg->getString(getConfigKey() + "['PathTestCases']", "", &ok);
+    s2e()->getWarningsStream()
+        << "[ConcolicExploreSearcher][init]: path to save test cases is: ["
+        << m_pathTestCases << "]" << '\n';
+
+    m_pathBBLog = cfg->getString(getConfigKey() + "['PathBBLog']", "", &ok);
+    s2e()->getWarningsStream()
+        << "[ConcolicExploreSearcher][init]: path to save basic block log is: ["
+        << m_pathBBLog << "]" << '\n';
+
+    m_idxInput = cfg->getInt(getConfigKey() + "['IdxInput']", m_idxInput, &ok);
+    s2e()->getWarningsStream()
+        << "[ConcolicExploreSearcher][init]: The database index of the input file is : ["
+        << m_idxInput << "]" << '\n';
+
+    m_totalTbs = cfg->getInt(getConfigKey() + "['TotalTbs']", m_totalTbs, &ok);
+    s2e()->getWarningsStream()
+        << "[ConcolicExploreSearcher][init]: The total number of Tbs for this input is (approximately): ["
+        << m_totalTbs << "]" << '\n';
+
+    // default to false
+    m_generate_constranit=cfg->getBool(getConfigKey() + "['GenConstraint']", m_generate_constranit, &ok);
+
+    ConfigFile::string_list whiteList = cfg->getListKeys(getConfigKey()+ "['WhiteList']");
+    ConfigFile::integer_list addrRange;
+    if (whiteList.size() == 0) {
+        s2e()->getWarningsStream() <<  "[ConcolicExploreSearcher][init]: no WhiteList Configured!" << '\n';
+    } else {
+        for(auto it: whiteList) {
+            std::stringstream funcName;
+            funcName << getConfigKey() << "['WhiteList']['" << it << "']";
+            addrRange = cfg->getIntegerList(funcName.str(), addrRange, &ok);
+            m_whiteListAddr.push_back(std::array<uint64_t, 2>{{addrRange[0], addrRange[1]}});
+        }
+        /* for (auto itWL: m_whiteListAddr) { */
+        /*     s2e()->getWarningsStream() <<  "[ConcolicExploreSearcher][init][WhiteList]: " */
+        /*         << hexval(itWL.at(0)) << ":"<< hexval(itWL.at(1)) << '\n'; */
+        /* } */
+    }
+
+    ConfigFile::string_list bbList = cfg->getListKeys(getConfigKey()+ "['BasicBlocks']");
+    if (bbList.size() == 0) {
+        s2e()->getWarningsStream() <<  "[ConcolicExploreSearcher][init]: no BasicBlocks Configured!" << '\n';
+    }
+
+    /* the value of each key should be a pair of start address and end address of one basic block */
+    ConfigFile::integer_list bbDetail;
+    for(auto it: bbList) {
+        std::stringstream bbName;
+        bbName << getConfigKey() << "['BasicBlocks']['" << it << "']";
+        bbDetail = cfg->getIntegerList(bbName.str(), bbDetail, &ok);
+        m_targetBasicBlocks.push_back(std::array<uint64_t, 5>{{bbDetail[0], bbDetail[1], bbDetail[2], bbDetail[3], bbDetail[4]}});
+        m_targetBBList.insert(std::pair<uint64_t, uint64_t>(bbDetail[0], bbDetail[4]));
+    }
+
+    std::stringstream ssPathBBLog;
+    time_t now = time(0);
+    pid_t pid = syscall(SYS_getpid);
+    ssPathBBLog << m_pathBBLog << "/" << pid << "_" <<m_idxInput << "_" << now;
+
+    s2e()->getWarningsStream() << ssPathBBLog.str() << '\n';
+
+    std::error_code EC;
+    m_BBLogFile = new raw_fd_ostream(ssPathBBLog.str().c_str(), EC, sys::fs::F_None);
+}
+
+
+void ConcolicExploreSearcher::writeToScore(uint64_t beginAddr)
+{
+    *m_BBLogFile << beginAddr << "\n";
+    m_BBLogFile->flush();
+}
+
+
+void ConcolicExploreSearcher::onShutdown()
+{
+    m_BBLogFile->close();
+}
+
+
+klee::ExecutionState &ConcolicExploreSearcher::selectState() {
+    klee::ExecutionState *initState;
+    foreach2(it, states.begin(), states.end()) {
+        S2EExecutionState *s2e_state = dynamic_cast<S2EExecutionState*>(*it);
+        if(s2e_state->getID() != 0){
+            currentState = *it;
+            return *currentState;
+        } else {
+            initState = *it;
+        }
+    }
+
+    if (currentState == NULL) {
+        currentState = initState;
+    }
+
+    return *currentState;
+}
+
+
+std::string ConcolicExploreSearcher::writeInputFile(
+        S2EExecutionState* genState, 
+        uint64_t IdxInput, uint64_t IdxInterested, uint64_t IdxBasicBlock
+        )
+{
+    /* S2EExecutionState * genState = newStates[idx]; */
+
+    /*----------------------------------------------------------------------------------------------------*/
+    /* Get File Content */
+    ConcreteInputs out;
+    /* s2e()->getExecutor()->getSymbolicSolution(*genState, out); */
+    bool success = s2e()->getExecutor()->getSymbolicSolution(*genState, out);
+
+    if (!success) {
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: "
+            << "Could not get symbolic solutions "
+            << "for state" << genState->getID()<< "\n";
+        return std::string("AA");
+    }
+    std::vector<unsigned char> content;
+    foreach2(it, out.begin(), out.end())
+    {
+        content.insert(content.end(), it->second.begin(), it->second.end());
+    }
+
+    /*----------------------------------------------------------------------------------------------------*/
+    /* Calculating MD5SUM */
+    static unsigned char result[MD5_DIGEST_LENGTH];
+    uint64_t fileSize = content.size();
+    const unsigned char * memBlock = new unsigned char[fileSize];
+
+    memBlock = reinterpret_cast<unsigned char*>(content.data());
+    md5::MD5((unsigned char*) memBlock, fileSize, result);
+
+    std::stringstream ssMD5;
+    for (int i=0; i<MD5_DIGEST_LENGTH; i++) {
+        ssMD5 << std::hex << std::setw(2) << std::setfill('0') << unsigned(result[i]);
+    }
+
+    /*----------------------------------------------------------------------------------------------------*/
+    /* Generating testcase file */
+    std::stringstream ssPath;
+    ssPath << m_pathTestCases << "/s2e_input_"
+           << IdxInput << "_" << IdxInterested << "_" << IdxBasicBlock << "_"
+           << ssMD5.str().substr(0, 8);
+
+    std::ofstream file(ssPath.str().c_str(), std::ios::out|std::ios::binary|std::ios::trunc);
+    std::copy(content.cbegin(), content.cend(),
+        std::ostream_iterator<unsigned char>(file));
+
+
+    s2e()->getWarningsStream()
+        << "[ConcolicExploreSearcher][onFork]: "
+        << "Testcase file generated:   [" << ssPath.str() << "]" << "\n";
+    /*----------------------------------------------------------------------------------------------------*/
+
+
+    /*----------------------------------------------------------------------------------------------------*/
+    /* Generating path constraint file */
+    if (m_generate_constranit) {
+        ssPath.str( std::string() );
+        ssPath.clear();
+        std::error_code EC;
+        ssPath << m_pathTestCases << "/s2e_constraints_"
+           << IdxInput << "_" << IdxInterested << "_" << IdxBasicBlock << "_"
+           << ssMD5.str().substr(0, 8);
+
+        raw_fd_ostream f(ssPath.str().c_str(), EC, sys::fs::F_None);
+
+        foreach2(it, genState->constraints.begin(), genState->constraints.end()) {
+            f << "Constraint: " << *it << "\n";
+        }
+        f.close();
+
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: "
+            << "Path constraint generated: [" << ssPath.str() << "]" << "\n";
+    }
+    /*----------------------------------------------------------------------------------------------------*/
+
+    return ssMD5.str();
+}
+
+void ConcolicExploreSearcher::updateVisited(uint64_t index, uint64_t addr)
+{
+    if (m_visitedTargets.find(index) == m_visitedTargets.end()) {
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: first visit [" << hexval(addr) << "] \n";
+        writeToScore(index);
+        m_visitedTargets.insert(index);
+    } else {
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: re-visit [" << hexval(addr) << "] \n";
+    }
+}
+
+
+bool ConcolicExploreSearcher::checkPC( S2EExecutionState *state, klee::ref<klee::Expr> condition )
+/* bool ConcolicExploreSearcher::checkPC( S2EExecutionState *state) */
+{
+
+    // because all we want is to fork to another branch at a given PC and generate test case that can cover the basic block on that branch. If the current forking pc has been processed before, set forkOk to false.
+    // depending on the first occurance of the forking pc, it should be in one of the three situations:
+    // 1. not in m_targetBasicBlocks, then should be false
+    // 2. found in m_targetBasicBlocks, but not forking, then assuming it won't fork as well (for now). XXX
+    // 3. found in m_targetBasicBlocks, and forked successfully, then it should be removed from m_targetBasicBlocks
+    //    already, no need to iterate through the vector again.
+
+    // TLDR: only check and try to fork during the first visit of each of the PC.
+    /* if current address is not a branch instruction, then not fork */
+
+
+    // this is not guaranteed to work because same instruction may emit the onStateForkDecide multiple times.
+    // if that happens, the forkOk flag will be set to false with this following operation.
+    /* if ( m_visited.find(curPC) != m_visited.end() ) { */
+    /*     return false; */
+    /* } */
+    /* m_visited.insert(curPC); */
+
+//    /* first try basic block lookup with the start address of the basic block */
+//    TranslationBlock *tb = state->regs()->read<TranslationBlock *>(CPU_OFFSET(se_current_tb));
+//    /* TranslationBlock *tb = s2e_read_register_concrete_fast<TranslationBlock *>(CPU_OFFSET(se_current_tb)); */
+//    /* TranslationBlock *tb = state->getTb(); */
+//    if(tb) {
+//
+//        std::map<uint64_t, uint64_t>::iterator it_map;
+//        it_map = m_targetBBList.find(tb->pc);
+//        if (it_map != m_targetBBList.end())
+//        {
+//            updateVisited(it_map->second, curPC);
+//            return true;
+//        }
+//        return false;
+//    }
+
+
+    /* miss++; */
+    /* if( miss % 1000 == 0) */
+    /* { */
+    /*     s2e()->getWarningsStream() */
+    /*         << "hit :" << hit */
+    /*         << " | miss :" << miss */
+    /*         << "\n"; */
+    /* } */
+
+    /* XXX:sometimes we don't have the TranslationBlock, in this case, search by compare BB range */
+    uint64_t curPC = state->getPc();
+
+    for (auto itWL: m_whiteListAddr) {
+        if( itWL.at(0) <= curPC && itWL.at(1) > curPC ) {
+
+            s2e()->getWarningsStream() << "white list match \n";
+
+            std::vector<klee::ref<klee::Expr>>::iterator it;
+            it = find(m_solved.begin(), m_solved.end(), condition);
+            if (it != m_solved.end())
+            {
+                s2e()->getWarningsStream() << "condition already solved \n";
+                return false;
+            }
+
+            IdxInput = 0;
+            IdxInterested = 0;
+            IdxBasicBlock = 0;
+
+            m_add = false;
+            return true;
+        }
+    }
+
+
+    std::vector<std::array<uint64_t, 5> >::iterator it_vector = m_targetBasicBlocks.begin();
+    for (;it_vector!=m_targetBasicBlocks.end();) {
+        if (it_vector->at(0) <= curPC && it_vector->at(1) > curPC){
+            updateVisited(it_vector->at(4), curPC);
+
+            m_add = true;
+
+            return true;
+        } else {
+            ++it_vector;
+        }
+    }
+    return false;
+}
+
+
+// before the fork actually happens, check the branching list and decide
+// whether we need to fork here
+void ConcolicExploreSearcher::onForkCheck(S2EExecutionState *state, klee::ref<klee::Expr> condition, bool *forkOk)
+/* void ConcolicExploreSearcher::onForkCheck(S2EExecutionState *state, bool *forkOk) */
+{
+    const ModuleDescriptor *moduleDescriptor = m_detector->getCurrentDescriptor(state);
+    if (!moduleDescriptor) {
+        *forkOk = false;
+        return;
+    }
+
+    if (state->getID() != 0) {
+        *forkOk = true;
+        return;
+    }
+
+    // whether the current state's forking address is interesting to us
+    *forkOk = checkPC(state, condition);
+    /* *forkOk = checkPC(state); */
+    return;
+}
+
+
+/* On state fork, prioritize the pre-defined state */
+void ConcolicExploreSearcher::onFork(S2EExecutionState *state,
+        const std::vector<S2EExecutionState*>& newStates,
+        const std::vector<klee::ref<klee::Expr> >& newConditions
+        )
+{
+    /* The first state in newStates is always the true */
+    int tID = newStates[0]->getID();
+    int fID = newStates[1]->getID();
+    std::string ret_md5;
+
+    /* only work on state 0 */
+    if(tID != 0 && fID != 0) {          // we are on child states' fork
+        // get the index of the state that is not state 0 in new states
+        /* int idx = tID ? 0 : 1; */
+
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: "
+            << "Generating test case for state ["
+            << newStates[0]->getID() << "] "
+            << "with condition [" << boolString(true) << "]\n";
+
+        ret_md5 = writeInputFile(newStates[0], IdxInput, IdxInterested, IdxBasicBlock);
+
+        s2e()->getWarningsStream()
+            << "[ConcolicExploreSearcher][onFork]: "
+            << "Generating test case for state ["
+            << newStates[1]->getID() << "] "
+            << "with condition [" << boolString(false) << "]\n";
+
+        ret_md5 = writeInputFile(newStates[1], IdxInput, IdxInterested, IdxBasicBlock);
+
+
+
+        if (state->getID() == tID) {
+            s2e()->getExecutor()->terminateStateEarly(*newStates[1], "generate testcase");
+            s2e()->getExecutor()->terminateStateEarly(*newStates[0], "generate testcase");
+        } else {
+            s2e()->getExecutor()->terminateStateEarly(*newStates[0], "generate testcase");
+            s2e()->getExecutor()->terminateStateEarly(*newStates[1], "generate testcase");
+        }
+        s2e()->getWarningsStream()
+            << "---------------------------------------------------------------------------\n";
+
+        /* s2e()->getWarningsStream() << "not forking on state[0]\n"; */
+        /* return; */
+    } else {               // we are on state 0's fork
+        // remove the current forking PC from m_targetBasicBlocks
+        // so we don't fork at this basic block any more
+        uint64_t curPC = state->getPc();
+        std::vector<std::array<uint64_t, 5> >::iterator it = m_targetBasicBlocks.begin();
+        for (;it!=m_targetBasicBlocks.end();) {
+            if (it->at(0) <= curPC && it->at(1) > curPC){
+                IdxInput = it->at(2);
+                IdxInterested = it->at(3);
+                IdxBasicBlock = it->at(4);
+
+                /* we are done with this basic block, remove from both target lists */
+                m_targetBBList.erase(m_targetBBList.find(it->at(0)));
+                it = m_targetBasicBlocks.erase(it);
+                break;
+            } else {
+                ++it;
+            }
+        }
+
+        int idx = tID ? 0 : 1;
+
+        m_solved.push_back(newConditions[idx]);
+        s2e()->getWarningsStream() << newConditions[idx] << "\n";
+
+        ret_md5 = writeInputFile(newStates[idx], IdxInput, IdxInterested, IdxBasicBlock);
+
+    }
+
+
+}
+
+/* do not accumulate states to state queue, always return states based on fork and concolic input */
+/* clear states when switching input */
+/* performance tweak */
+void ConcolicExploreSearcher::update(klee::ExecutionState *current,
+	const klee::StateSet &addedStates,
+	const klee::StateSet &removedStates){
+
+
+    /* only add state 0 */
+    for (auto& it: addedStates) {
+        S2EExecutionState *es = dynamic_cast<S2EExecutionState*>(it);
+        if(m_add) {
+            states.insert(states.end(), es);
+        }else {
+            if (es->getID() == 0)
+            {
+                states.insert(states.end(), es);
+            }
+        }
+    }
+
+    //foreach2 (it, removedStates.begin(), removedStates.end()) {
+    for (klee::StateSet::const_iterator it = removedStates.begin(), ie = removedStates.end(); it != ie; ++it) {
+        klee::ExecutionState *es = *it;
+        if (currentState == es) {
+            currentState = NULL;
+        }
+
+        if (es == states.back()) {
+            states.pop_back();
+        } else {
+            bool ok = false;
+
+            for (std::vector<klee::ExecutionState *>::iterator it = states.begin(), ie = states.end(); it != ie; ++it) {
+                if (es == *it) {
+                    states.erase(it);
+                    ok = true;
+                    break;
+                }
+            }
+
+            assert(ok && "invalid state removed");
+        }
+    }
+
+}
+
+} // namespace plugins
+} // namespace s2e

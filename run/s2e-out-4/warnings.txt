@@ -1,0 +1,136 @@
+WARNING: Cannot get configuration value 'pluginsConfig['TestCaseGenerator'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['TestCaseGenerator']['PathTestCases']':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['MultiSearcher'].logLevel':
+    [string "return pluginsConfig['MultiSearcher'].logLeve..."]:1: attempt to index a nil value (field 'MultiSearcher')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ForkLimiter'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['ForkLimiter'].overallForkCount':
+    value of type nil can not be converted to integer
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].logLevel':
+    [string "return pluginsConfig['KeyValueStore'].logLeve..."]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].server':
+    [string "return pluginsConfig['KeyValueStore'].server"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].port':
+    [string "return pluginsConfig['KeyValueStore'].port"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['KeyValueStore'].type':
+    [string "return pluginsConfig['KeyValueStore'].type"]:1: attempt to index a nil value (field 'KeyValueStore')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ExecutionTracer'].logLevel':
+    [string "return pluginsConfig['ExecutionTracer'].logLe..."]:1: attempt to index a nil value (field 'ExecutionTracer')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ExecutionTracer'].useCircularBuffer':
+    [string "return pluginsConfig['ExecutionTracer'].useCi..."]:1: attempt to index a nil value (field 'ExecutionTracer')
+
+WARNING: Cannot get configuration value 'pluginsConfig['WebServiceInterface'].logLevel':
+    value of type nil can not be converted to string
+
+WebServiceInterface: SeedSearcher not present, seed statistics will not be available
+WebServiceInterface: Recipe plugin not present, recipe statistics will not be available
+WARNING: Cannot get configuration value 'pluginsConfig['Vmi'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['Vmi'].modules':
+    value of type nil can not be converted to lua_table with only string keys
+
+WARNING: Cannot get configuration value 'pluginsConfig['HostFiles'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].logLevel':
+    [string "return pluginsConfig['BaseInstructions'].logL..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].restrict':
+    [string "return pluginsConfig['BaseInstructions'].rest..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['LinuxMonitor'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['LinuxMonitor'].terminateOnSegfault':
+    value of type nil can not be converted to boolean
+
+WARNING: Cannot get configuration value 'pluginsConfig['ProcessExecutionDetector'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleExecutionDetector'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleExecutionDetector'].trackAllModules':
+    value of type nil can not be converted to boolean
+
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleExecutionDetector'].configureAllModules':
+    value of type nil can not be converted to boolean
+
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleExecutionDetector'].trackExecution':
+    value of type nil can not be converted to boolean
+
+WARNING: Cannot get configuration value 'pluginsConfig['StaticFunctionModels'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['StaticFunctionModels'].count':
+    value of type nil can not be converted to integer
+
+WARNING: Cannot get configuration value 'pluginsConfig['CUPASearcher'].batchTime':
+    value of type nil can not be converted to integer
+
+WARNING: Cannot get configuration value 'pluginsConfig['CUPASearcher'].enabled':
+    value of type nil can not be converted to boolean
+
+WARNING: Cannot get configuration value 'pluginsConfig['TranslationBlockCoverage'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['TranslationBlockCoverage'].writeCoveragePeriod':
+    value of type nil can not be converted to integer
+
+WARNING: Cannot get configuration value 'pluginsConfig['ModuleTracer'].logLevel':
+    [string "return pluginsConfig['ModuleTracer'].logLevel..."]:1: attempt to index a nil value (field 'ModuleTracer')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher'].logLevel':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['PathTestCases']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+[ConcolicExploreSearcher][init]: path to save test cases is: []
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['PathBBLog']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+[ConcolicExploreSearcher][init]: path to save basic block log is: []
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['IdxInput']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+[ConcolicExploreSearcher][init]: The database index of the input file is : [93856872052800]
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['TotalTbs']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+[ConcolicExploreSearcher][init]: The total number of Tbs for this input is (approximately): [0]
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['GenConstraint']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['BasicBlocks']':
+    [string "return pluginsConfig['ConcolicExploreSearcher..."]:1: attempt to index a nil value (field 'ConcolicExploreSearcher')
+
+[ConcolicExploreSearcher][init]: no BasicBlocks Configured!
+/20969_93856872052800_1519227054
+WARNING: Cannot get configuration value 'pluginsConfig['CorePlugin'].logLevel':
+    [string "return pluginsConfig['CorePlugin'].logLevel"]:1: attempt to index a nil value (field 'CorePlugin')
+
+2 [State 0] LinuxMonitor: Command bytes: 0x2 0x16 0x10 0x1 0x17 0x20 0x0 0x0 0x5 0x0 0x0 0x0 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0xff 0x0 0x0 0x0 0x0 0x0 0x88 0xff 0xff 0xe0 0x73 0xe 0x82 0xff 0xff 0xff 0xff 0x60 0x4 0x0 0x0 0x0 0x0 0x0 0x0 0x64 0x4 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 
+/opt/s2e-head/libs2eplugins/src/s2e/Plugins/OSMonitors/Linux/BaseLinuxMonitor.h:134: bool s2e::plugins::BaseLinuxMonitor<S2E_LINUXMON_COMMAND, 35283441816584>::verifyCustomInstruction(s2e::S2EExecutionState *, uint64_t, uint64_t, CmdT &) [CmdT = S2E_LINUXMON_COMMAND, CmdVersion = 35283441816584]: Assertion `false' failed in state 0: Invalid command version 0x201701101602 != 0x201711041408 from pagedir=0xd945000 pc=0xffffffffa00000a0
+
+Printing stack trace (state assertion failed)
+  [0x7f224f1e2941] /opt/s2e-head//build/opt//share/libs2e/libs2e-x86_64-s2e.so : ???()+0x20d941
+  [0x7f224f1e0787] /opt/s2e-head//build/opt//share/libs2e/libs2e-x86_64-s2e.so : ???()+0x20b787
+  [0x7f224f1ac970] /opt/s2e-head//build/opt//share/libs2e/libs2e-x86_64-s2e.so : ???()+0x1d7970
+  [0x7f224f2f6ce1] /opt/s2e-head//build/opt//share/libs2e/libs2e-x86_64-s2e.so : ???()+0x321ce1
+  [0x439e333a]
+All states were terminated
+Terminating node 0 (instance slot 0)

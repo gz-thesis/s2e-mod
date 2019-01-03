@@ -1,0 +1,1 @@
+build-scripts/run-clang-format.sh

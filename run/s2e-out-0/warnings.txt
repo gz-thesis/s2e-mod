@@ -1,0 +1,733 @@
+WARNING: Cannot get configuration value 'pluginsConfig['HostFiles'].logLevel':
+    value of type nil can not be converted to string
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].logLevel':
+    [string "return pluginsConfig['BaseInstructions'].logL..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['BaseInstructions'].restrict':
+    [string "return pluginsConfig['BaseInstructions'].rest..."]:1: attempt to index a nil value (field 'BaseInstructions')
+
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher'].logLevel':
+    value of type nil can not be converted to string
+
+[ConcolicExploreSearcher][init]: path to save test cases is: [/tmp]
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['PathBBLog']':
+    value of type nil can not be converted to string
+
+[ConcolicExploreSearcher][init]: path to save basic block log is: []
+WARNING: Cannot get configuration value 'pluginsConfig['ConcolicExploreSearcher']['IdxInput']':
+    value of type nil can not be converted to integer
+
+[ConcolicExploreSearcher][init]: The database index of the input file is : [140702886114152]
+[ConcolicExploreSearcher][init]: The total number of Tbs for this input is (approximately): [1000000]
+/10800_140702886114152_1519023268
+WARNING: Cannot get configuration value 'pluginsConfig['CorePlugin'].logLevel':
+    [string "return pluginsConfig['CorePlugin'].logLevel"]:1: attempt to index a nil value (field 'CorePlugin')
+
+[ConcolicExploreSearcher][onFork]: first visit [0x401fef] 
+[ConcolicExploreSearcher][onFork]: first visit [0x40200e] 
+[ConcolicExploreSearcher][onFork]: first visit [0x41d93a] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [1] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_65_93861420583680_4405dc73]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: first visit [0x41dc1b] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [2] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649665_dd54537a]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: first visit [0x41ef3b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41ef3d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41efb3] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41efb9] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41efc2] 
+[ConcolicExploreSearcher][onFork]: first visit [0x41f00e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41f017] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406216] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406313] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406320] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406322] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406384] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [3] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_753_140702882574904_f6e83bd2]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x40361c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40381b] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [4] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649664_e3cbb612]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: first visit [0x41f3a7] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x41f3af] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4077a9] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4077c3] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407993] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406d54] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406ef9] 
+[ConcolicExploreSearcher][onFork]: first visit [0x40782b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407834] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407866] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40788a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40789d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078d6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407909] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407914] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407866] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40788a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40789d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078d6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407909] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407914] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407866] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40788a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40789d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078d6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407909] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407914] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407866] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40788a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40789d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078d6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407909] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407914] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407866] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40788a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40789d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4078d6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407909] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x407914] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409b3b] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156c61-39-2cc-0-40c2b7:   store i64 %14, i64* %16) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Add w64 0x6e
+                                                                        (LShr w64 N1:(Or w64 (Shl w64 (ZExt w64 N2:(Extract w32 0 (LShr w64 N3:(And w64 (Add w64 0x17
+                                                                                                                                                                 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N4:(Extract w32 0 N5:(Add w64 (Add w64 (Shl w64 (Mul w64 (LShr w64 N6:(Select w64 (Slt N7:(ZExt w64 (Extract w32 0 (Or w64 (ZExt w64 (Extract w32 0 (Shl w64 (ZExt w64 (Extract w8 24 N8:(Extract w32 0 (LShr w64 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N9:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N10:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x3c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    (ReadLSB w64 0x38 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          (Concat w56 (Extract w8 16 N10)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (Concat w48 (Extract w8 8 N10)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  (Concat w40 (Extract w8 0 N10)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              N11:(Extract w32 0 (LShr w64 N12:(Or w64 (Shl w64 (ReadLSB w64 0x34 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       (ReadLSB w64 0x30 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           0x20))))))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     (Concat w64 (Extract w8 24 N11)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 (Concat w56 (Extract w8 16 N11)
+                                                                                                                                                                                                                                                                                             
+[ConcolicExploreSearcher][onFork]: re-visit [0x409b70] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406ef9] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [5] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649664_74550e65]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c05] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c19] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c66] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156c61-39-2cc-0-40c2b7:   store i64 %14, i64* %16) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (LShr w64 (ZExt w64 (Extract w32 0 (And w64 (Add w64 0x18
+                                                                                                                    (Add w64 (And w64 N1:(Select w64 (Slt N2:(ZExt w64 (Extract w32 0 (Or w64 (Or w64 (Or w64 (Shl w64 (ZExt w64 (Extract w8 8 N3:(Extract w32 0 (LShr w64 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N4:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x74 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                        0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                               (ReadLSB w64 0x70 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                                                                                                                                                                                                                                      (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                                                                                                                                                                                                  (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                                                                                                                                                                                              (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                                                                                                                                                                                          N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (ReadLSB w64 0x6c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 (ReadLSB w64 0x68 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                                                                                                                                                                                                      0x20))))))
+                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                 (Concat w64 (Extract w8 24 N6)
+                                                                                                                                                                                                                                                                                                                                                             (Concat w56 (Extract w8 16 N6)
+                                                                                                                                                                                                                                                                                                                                                                         (Concat w48 (Extract w8 8 N6)
+                                                                                                                                                                                                                                                                                                                                                                                     (Concat w40 (Extract w8 0 N6) N8:(Extract w32 0 N7))))))))
+                                                                                                                                                                                                                                                                                                        (Concat w56 (Extract w8 16 N4)
+                                                                                                                                                                                                                                                                                                                    (Concat w48 (Extract w8 8 N4)
+                                                                                                                                                                                                                                                                                                                                (Concat w40 (Extract w8 0 N4)
+                                                                                                                                                                                                                                                                                                                                            N9:(Extract w32 0 (LShr w64 N10:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N8)
+                                                                                                
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c6c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c72] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c7b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a187] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c66] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156c61-39-2cc-0-40c2b7:   store i64 %14, i64* %16) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (LShr w64 (ZExt w64 (Extract w32 0 (And w64 (Add w64 0x18
+                                                                                                                    (Add w64 (And w64 N1:(Select w64 (Slt N2:(ZExt w64 (Extract w32 0 (Or w64 (Or w64 (Or w64 (Shl w64 (ZExt w64 (Extract w8 8 N3:(Extract w32 0 (LShr w64 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N4:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x74 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                        0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                               (ReadLSB w64 0x70 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                                                                                                                                                                                                                                      (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                                                                                                                                                                                                  (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                                                                                                                                                                                              (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                                                                                                                                                                                          N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (ReadLSB w64 0x6c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 (ReadLSB w64 0x68 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                                                                                                                                                                                                      0x20))))))
+                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                 (Concat w64 (Extract w8 24 N6)
+                                                                                                                                                                                                                                                                                                                                                             (Concat w56 (Extract w8 16 N6)
+                                                                                                                                                                                                                                                                                                                                                                         (Concat w48 (Extract w8 8 N6)
+                                                                                                                                                                                                                                                                                                                                                                                     (Concat w40 (Extract w8 0 N6) N8:(Extract w32 0 N7))))))))
+                                                                                                                                                                                                                                                                                                        (Concat w56 (Extract w8 16 N4)
+                                                                                                                                                                                                                                                                                                                    (Concat w48 (Extract w8 8 N4)
+                                                                                                                                                                                                                                                                                                                                (Concat w40 (Extract w8 0 N4)
+                                                                                                                                                                                                                                                                                                                                            N9:(Extract w32 0 (LShr w64 N10:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N8)
+                                                                                                
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c6c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c72] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c7b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a187] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409c66] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [6] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649665_d19581e4]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a737] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a749] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [7] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_273_140702472301432_4d60dfdf]
+---------------------------------------------------------------------------
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156c61-39-2cc-0-40c2b7:   store i64 %14, i64* %16) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (LShr w64 (ZExt w64 (Extract w32 0 (And w64 (Add w64 0x18
+                                                                                                                    (Add w64 (And w64 N1:(Select w64 (Slt N2:(ZExt w64 (Extract w32 0 (Or w64 (Or w64 (Or w64 (Shl w64 (ZExt w64 (Extract w8 8 N3:(Extract w32 0 (LShr w64 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N4:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x74 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                        0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                               (ReadLSB w64 0x70 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                                                                                                                                                                                                                                      (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                                                                                                                                                                                                  (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                                                                                                                                                                                              (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                                                                                                                                                                                          N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (ReadLSB w64 0x6c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 (ReadLSB w64 0x68 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                                                                                                                                                                                                      0x20))))))
+                                                                                                                                                                                                                                                                                                                                                          0x20)
+                                                                                                                                                                                                                                                                                                                                                 (Concat w64 (Extract w8 24 N6)
+                                                                                                                                                                                                                                                                                                                                                             (Concat w56 (Extract w8 16 N6)
+                                                                                                                                                                                                                                                                                                                                                                         (Concat w48 (Extract w8 8 N6)
+                                                                                                                                                                                                                                                                                                                                                                                     (Concat w40 (Extract w8 0 N6) N8:(Extract w32 0 N7))))))))
+                                                                                                                                                                                                                                                                                                        (Concat w56 (Extract w8 16 N4)
+                                                                                                                                                                                                                                                                                                                    (Concat w48 (Extract w8 8 N4)
+                                                                                                                                                                                                                                                                                                                                (Concat w40 (Extract w8 0 N4)
+                                                                                                                                                                                                                                                                                                                                            N9:(Extract w32 0 (LShr w64 N10:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N8)
+                                                                                                
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a187] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a187] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a187] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a23b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a251] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a25d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a26d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d1] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d9] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064e0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406586] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406590] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4065a1] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4065b2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40669c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40678e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4067be] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4d0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4de] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4e2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a8b0] 
+[ConcolicExploreSearcher][onFork]: first visit [0x405712] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a5e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a64] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a5e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a5e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a64] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ad6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ae4] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c4b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c52] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40aa04] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a23b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a251] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a25d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a26d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d1] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d9] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064e0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064e9] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064f0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406501] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40650e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406518] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40669c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40678e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4067be] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4d0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4de] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4e2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a8b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405712] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057fc] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405802] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057fc] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a5e] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a64] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ad6] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ae4] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c4b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c52] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40aa04] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a23b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a251] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a25d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %11, i64* %13) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x2f8 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0xc v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x8 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+    
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %15, i64* %17) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x24 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x20 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+  
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %11, i64* %13) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x2f8 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0xc v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x8 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+    
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %11, i64* %13) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x2f8 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0xc v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x8 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+    
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %15, i64* %17) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x24 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x20 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+  
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a26d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d1] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406533] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x406539] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4065d3] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4d0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4de] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4e2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a8b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405712] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [8] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_93861420107232_2d323870]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x4057f2] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [9] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649664_bd17024a]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x405816] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ac0] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [10] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649664_35d51ef7]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c4b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c52] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x405a5e] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [11] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_145_0_ac3006bd]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x405ad6] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [12] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_64_65_140698833649664_3e87eeae]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x405c4b] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [13] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_273_140702472301432_90ea8e7f]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a823] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a825] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40ab8c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40aa04] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a585] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a23b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a251] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a25d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %11, i64* %13) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x2f8 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0xc v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x8 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+    
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %15, i64* %17) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x300 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x24 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x20 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+  
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a26d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064d1] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [14] with condition [false]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_49_93861414653728_f3eef9fe]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x406533] 
+[ConcolicExploreSearcher][onFork]: Generating test case for state [15] with condition [true]
+[ConcolicExploreSearcher][onFork]: Testcase file generated:   [/tmp/s2e_input_32_145_0_50cb5310]
+---------------------------------------------------------------------------
+[ConcolicExploreSearcher][onFork]: re-visit [0x4065d3] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4065e0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4d0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4de] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a4e2] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a8b0] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a823] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a825] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40ab8c] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40aa04] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a585] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a23b] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a251] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a25d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+KLEE: WARNING: silently concretizing (instruction: tcg-llvm-tb-7ff874156e10-5d-5ac-0-40c2b7:   store i64 %11, i64* %13) (reason: write to always concrete memory name:ConcreteCpuRegisters offset=0x2f8 value=(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N0:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N1:(Extract w32 0 (Or w64 (Shl w64 (Concat w64 (Extract w8 24 N2:(Extract w32 0 (Or w64 (Shl w64 (ReadLSB w64 0x1c v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                            0x20)
+                                                                                                                                                                                                   (ReadLSB w64 0x18 v0___symfile____tmp_input___0_1_symfile___0))))
+                                                                                                                                                          (Concat w56 (Extract w8 16 N2)
+                                                                                                                                                                      (Concat w48 (Extract w8 8 N2)
+                                                                                                                                                                                  (Concat w40 (Extract w8 0 N2)
+                                                                                                                                                                                              N3:(Extract w32 0 (LShr w64 N4:(Or w64 (Shl w64 (ReadLSB w64 0x14 v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                              0x20)
+                                                                                                                                                                                                                                     (ReadLSB w64 0x10 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                          0x20))))))
+                                                                                                                                              0x20)
+                                                                                                                                     (Concat w64 (Extract w8 24 N3)
+                                                                                                                                                 (Concat w56 (Extract w8 16 N3)
+                                                                                                                                                             (Concat w48 (Extract w8 8 N3)
+                                                                                                                                                                         (Concat w40 (Extract w8 0 N3) N5:(Extract w32 0 N4))))))))
+                                                                                            (Concat w56 (Extract w8 16 N1)
+                                                                                                        (Concat w48 (Extract w8 8 N1)
+                                                                                                                    (Concat w40 (Extract w8 0 N1)
+                                                                                                                                N6:(Extract w32 0 (LShr w64 N7:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N5)
+                                                                                                                                                                                            (Concat w56 (Extract w8 16 N5)
+                                                                                                                                                                                                        (Concat w48 (Extract w8 8 N5)
+                                                                                                                                                                                                                    (Concat w40 (Extract w8 0 N5)
+                                                                                                                                                                                                                                N8:(Extract w32 0 (LShr w64 N9:(Or w64 (Shl w64 (ReadLSB w64 0xc v0___symfile____tmp_input___0_1_symfile___0)
+                                                                                                                                                                                                                                                                                0x20)
+                                                                                                                                                                                                                                                                       (ReadLSB w64 0x8 v0___symfile____tmp_input___0_1_symfile___0))
+                                                                                                                                                                                                                                                            0x20))))))
+                                                                                                                                                                                0x20)
+                                                                                                                                                                       (Concat w64 (Extract w8 24 N8)
+                                                                                                                                                                                   (Concat w56 (Extract w8 16 N8)
+                                                                                                                                                                                               (Concat w48 (Extract w8 8 N8)
+                                                                                                                                                                                                           (Concat w40 (Extract w8 0 N8) N10:(Extract w32 0 N9))))))
+                                                                                                                                                            0x20))))))
+                                                                                0x20)
+                                                                       (Concat w64 (Extract w8 24 N6)
+                                                                                   (Concat w56 (Extract w8 16 N6)
+                                                                                               (Concat w48 (Extract w8 8 N6)
+                                                                                                           (Concat w40 (Extract w8 0 N6) N11:(Extract w32 0 N7))))))))
+                              (Concat w56 (Extract w8 16 N0)
+                                          (Concat w48 (Extract w8 8 N0)
+                                                      (Concat w40 (Extract w8 0 N0)
+                                                                  N12:(Extract w32 0 (LShr w64 N13:(Or w64 (Shl w64 (Concat w64 (Extract w8 24 N11)
+    
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40998a] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x409988] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x40a26d] 
+[ConcolicExploreSearcher][onFork]: re-visit [0x4064e0] 

@@ -1,0 +1,49 @@
+{
+    "creation_time": "2017-10-03 17:21:20.363818", 
+    "dynamically_linked": true, 
+    "guestfs_dir": "/home/gz/s2e/projects/cb/guestfs", 
+    "has_guestfs": false, 
+    "image": {
+        "memory": "256M", 
+        "os": {
+            "arch": "x86_64", 
+            "binary_formats": [
+                "elf"
+            ], 
+            "build": "", 
+            "name": "debian", 
+            "version": "8.7.1"
+        }, 
+        "path": "/home/gz/s2e/images/debian-8.7.1-x86_64/image.raw.s2e", 
+        "qemu_build": "x86_64", 
+        "qemu_extra_flags": "-net none -net nic,model=e1000 ", 
+        "snapshot": "ready", 
+        "version": 2
+    }, 
+    "modelled_functions": [
+        "strncpy", 
+        "strncmp", 
+        "strcpy", 
+        "strlen", 
+        "memcmp", 
+        "strcmp", 
+        "memcpy"
+    ], 
+    "project_dir": "/home/gz/s2e/projects/cb", 
+    "project_type": "linux", 
+    "recipes_dir": "/home/gz/s2e/projects/cb/recipes", 
+    "seeds_dir": "/home/gz/s2e/projects/cb/seeds", 
+    "sym_args": [], 
+    "target": "cb", 
+    "target_arch": "x86_64", 
+    "target_args": [
+        "-a", 
+        "@@"
+    ], 
+    "target_path": "/home/gz/s2e_performance_test/cb", 
+    "use_recipes": false, 
+    "use_seeds": false, 
+    "use_symb_input_file": true, 
+    "warn_input_file": true, 
+    "warn_seeds": true
+}

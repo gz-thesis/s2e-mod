@@ -1,0 +1,13 @@
+Waiting for S2E mode...
+... S2E mode detected
+... file guest-tools/s2ecmd of size 18816 was transferred successfully to /home/s2e/s2ecmd
+Waiting for S2E mode...
+... S2E mode detected
+... file guest-tools/s2eget of size 13672 was transferred successfully to /home/s2e/s2eget
+Waiting for S2E mode...
+... S2E mode detected
+... file guest-tools/s2eput of size 13352 was transferred successfully to /home/s2e/s2eput
+Waiting for S2E mode...
+... S2E mode detected
+... file guest-tools/s2e.so of size 27096 was transferred successfully to /home/s2e/s2e.so
+debug.exception-trace = 0

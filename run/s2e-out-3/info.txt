@@ -1,0 +1,21 @@
+[Z3] Initializing
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Creating plugin CorePlugin
+Creating plugin ConcolicExploreSearcher
+Creating plugin BaseInstructions
+Creating plugin HostFiles
+Creating plugin Vmi
+Creating plugin WebServiceInterface
+Creating plugin ExecutionTracer
+Creating plugin ModuleTracer
+Creating plugin KeyValueStore
+Creating plugin TranslationBlockCoverage
+Creating plugin ModuleExecutionDetector
+Creating plugin ForkLimiter
+Creating plugin ProcessExecutionDetector
+Creating plugin CUPASearcher
+Creating plugin StaticFunctionModels
+Creating plugin LinuxMonitor
+Creating plugin TestCaseGenerator

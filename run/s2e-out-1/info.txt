@@ -1,0 +1,13 @@
+[Z3] Initializing
+BEGIN searcher description
+DFSSearcher
+END searcher description
+Creating plugin CorePlugin
+Creating plugin ConcolicExploreSearcher
+Creating plugin BaseInstructions
+Creating plugin HostFiles
+Initializing HostFiles
+Initializing BaseInstructions
+Initializing ConcolicExploreSearcher
+Initializing CorePlugin
+0 [State 0] Created initial state
